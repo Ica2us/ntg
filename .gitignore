@@ -1,0 +1,17 @@
+/target
+**/*.rs.bk
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+*.iml   
+*.swp
+*.swo
+
+# Ignore environment files
+*.env.local
+*.env
+
+# Ignore log files
+*.log
+logs/
