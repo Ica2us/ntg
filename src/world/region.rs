@@ -6,7 +6,7 @@ pub struct Region {
     pub id: u32,
     pub name: String,
     pub description: String,
-    pub difficulty: u8,
+    pub difficulty: u32,
     pub resources: Vec<String>,
     pub controlled_by: Option<u32>, // Faction ID
 }

@@ -1,10 +1,10 @@
 use super::inventory::Inventory;
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Clone, Serialize, Deserialize)]
 pub struct Character {
-    name: String,
-    title: String, // 称号：凡人→修士→大能→圣人→逆天者
+    pub name: String,
+    //title: String, // 称号：凡人→修士→大能→圣人→逆天者
 
     pub stats: Stats,
 
@@ -13,10 +13,12 @@ pub struct Character {
     pub territories: Vec<String>,
     pub inventory: Inventory,
 
+    pub followers: u32, // 追随者
+
     //lovers: Vec<String>,      // 红颜/知己TODO
 
     // 状态
-    health: i32,
+    pub health: i32,
     cultivation_level: CultivationLevel,
     karma: i32, // 业力/声望（正邪）
 }
@@ -41,7 +43,6 @@ pub struct Resources {
     pub gold: u32,
     pub manpower: u32,
     pub influence: u32,
-    pub followers: u32, // 追随者
     pub technology: u32,
 }
 
@@ -67,6 +68,12 @@ impl Character {
                 charisma: 5,
                 ambition: 5,
                 luck: 5,
+                nts: 0,
+                agility: 5,
+                lust: 5,
+                stamina: 5,
+                darkness: 0,
+                divinity: 0,
             },
             resources: Resources {
                 gold: 10,
@@ -76,6 +83,8 @@ impl Character {
             },
             health: 100,
             followers: 0,
+            karma: 0,
+            cultivation_level: CultivationLevel::Mortal,
             territories: Vec::new(),
             inventory: Inventory::new(),
         }
