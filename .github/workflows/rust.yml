@@ -21,7 +21,7 @@ jobs:
    # - name: Run tests
    #  run: cargo test --verbose
     - name: Build Debug Version
-      run: cargo build --debug --verbose
+      run: cargo build --verbose
     - name: Build Release Version
       run: cargo build --release --verbose
     - name: Upload Debug Binaries
