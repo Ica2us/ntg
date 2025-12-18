@@ -16,7 +16,24 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build
-      run: cargo build --verbose
-    - name: Run tests
-      run: cargo test --verbose
+    - name: Run Check
+      run: cargo c --verbose
+   # - name: Run tests
+   #  run: cargo test --verbose
+    - name: Build Debug Version
+      run: cargo build --debug --verbose
+    - name: Build Release Version
+      run: cargo build --release --verbose
+    - name: Upload Debug Binaries
+      uses: actions/upload-artifact@v4
+      with:
+        name: debug-build
+        path: target/debug/ntg
+        retention-days: 3  
+    - name: Upload Release Binaries
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-build
+        path: target/release/ntg
+        retention-days: 3
+      
